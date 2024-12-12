@@ -8,12 +8,37 @@ nav {
     height: 70px;
 }
 
-main{
-    border: orange;
-    background-color: red;
-    height: 545px;
-    width: 100%;
+#navimage{
+    width: 20px;
+    height: 20px;
 }
+
+
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board {
+    width: 300px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Example background color */
+    margin-bottom: 20px; /* Space between board and reset button */
+}
+
+#reset {
+    margin-bottom: 20px; /* Space between reset button and counter */
+}
+
+#counter {
+    display: flex;
+    justify-content: space-around;
+    width: 100px; /* Adjust width as needed */
+}
+
+
 
 footer {
     position: bottom sticky;
