@@ -13,22 +13,26 @@ createBoard();
  function createBoard() {
     let board = document.getElementById("board");
     let grid = board.innerHTML = `<table>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
+    <td  class="cell" >0</td>
+    <td class="cell" >0</td>
+    <td class="cell" >0</td>
   </tr >
   <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
+    <td class="cell" >0</td>
+    <td class="cell" >0</td>
+    <td class="cell" >0</td>
   </tr>
   <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
+    <td class="cell" >0</td>
+    <td class="cell" >0</td>
+    <td class="cell" >0</td>
   </tr>
 </table > `;
-    
+    // add event listener to each cell
+    let cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("click", handleClick);
+    });
 };
 
 
@@ -40,6 +44,11 @@ createBoard();
 
 // handle cicks on cells
 function handleClick(e){
+    if (e.target.innerHTML === "0") {
+        e.target.innerHTML = currentPlayer === 0 ? "X" : "O";
+        currentPlayer = 1 - currentPlayer;
+    }
+    
 }
 
 // check for a win
