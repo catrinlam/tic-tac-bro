@@ -1,30 +1,34 @@
-const ticTac = {
-    currentPlayer: "X",
-    state: Array(9).fill(null),
-    gameOver: false,
-
-    init() {
-        this.createBoard();
-        document
-            .getElementById("reset")
-            .addEventListener("click", () => this.reset());
-    },
+var winners = new Array();
+var player1Selections = new Array();
+var player2Selections = new Array();
+var currentPlayer = 0;
+var points1 = 0;    // player 1 points
+var points2 = 0;    // player 2 points
+var size = 3;
 
 
-};
+
 
 // create the board
  function createBoard() {
-    const board = document.getElementById("board");
-    board.innerHTML = ""; // Clear previous board
-    this.state.forEach((_, i) => {
-        const cell = document.createElement("div");
-        cell.dataset.index = i;
-        board.appendChild(cell);
-    });
-    board.addEventListener("click", (e) => this.handleClick(e)); // Handle clicks on the board
-    this.uMessage(`Player ${this.currentPlayer}'s turn`);
+         let parent = document.getElementById("board");
+         let counter = 1;
+
+         for (let i = 0; i < 3; i++) {
+             let row = document.createElement("tr");
+
+             for (let x = 0; x < size; x++) {
+                 let col = document.createElement("td");
+                 col.innerHTML = counter;
+
+                 row.appendChild(col);
+             }
+             parent.appendChild(row);
+         }
 };
+createBoard();
+
+
 
 
 
