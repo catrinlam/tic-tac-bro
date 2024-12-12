@@ -103,3 +103,22 @@ footer {
     font-size: 12px;
     background-color: black;
   }
+
+  /*Bar screen size change*/
+@media screen and (min-width: 760px){
+    #bar{
+        display:none;
+    }
+    }
+/*Rules screen size change*/
+/* Hide #rules by default */
+#rules {
+    display: none;
+}
+
+/* Show #rules on screens larger than 760px */
+@media screen and (min-width: 760px) {
+    #rules {
+        display: block;
+    }
+}
