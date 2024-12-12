@@ -6,6 +6,8 @@ var points1 = 0;    // player 1 points
 var points2 = 0;    // player 2 points
 var size = 3;
 
+resetBtn = document.getElementById("reset");
+resetBtn.addEventListener("click", resetGame);
 createBoard();
 
 
@@ -49,7 +51,7 @@ function handleClick(e){
         currentPlayer = 1 - currentPlayer;
         checkForWin();
     } else {
-        alert("This cell is already taken!");
+        alert("Oi pick your own square!");
     }
 }
 
@@ -66,10 +68,7 @@ function checkForWin(){
         [0, 4, 8],
         [2, 4, 6], // Diagonals
     ];
-    const currentPlayerClass = currentPlayer === 0 ? "fa-x" : "fa-o";
-    return wins.some((combo) =>
-        combo.every((i) => cells[i].querySelector(`.${currentPlayerClass}`))
-    );
+    
 }
 
 // highlight the winning cells
@@ -78,5 +77,11 @@ function highlight(){
 
 // reset the game
 function resetGame(){
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.innerHTML = "";
+    });
+    console.log("resetting game");
+    
 }
 
