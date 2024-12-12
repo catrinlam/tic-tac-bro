@@ -1,20 +1,38 @@
 const ticTac = {
     currentPlayer: "X",
-    state: ["", "", "", "", "", "", "", "", ""],
+    state: Array(9).fill(null),
     gameOver: false,
 
-    
+    init() {
+        this.createBoard();
+        document
+            .getElementById("reset")
+            .addEventListener("click", () => this.reset());
+    },
+
+
 };
 
 // create the board
-
+ function createBoard() {
+    const board = document.getElementById("board");
+    board.innerHTML = ""; // Clear previous board
+    this.state.forEach((_, i) => {
+        const cell = document.createElement("div");
+        cell.dataset.index = i;
+        board.appendChild(cell);
+    });
+    board.addEventListener("click", (e) => this.handleClick(e)); // Handle clicks on the board
+    this.uMessage(`Player ${this.currentPlayer}'s turn`);
+};
 
 
 
 
 
 // handle cicks on cells
-function handleClick(e){}
+function handleClick(e){
+}
 
 // check for a win
 function checkForWin(){
@@ -31,7 +49,7 @@ function checkForWin(){
     return wins.find((combo) =>
         combo.every((i) => this.state[i] === this.currentPlayer)
     );
-},
+}
 
 
 // highlight the winning cells
@@ -41,5 +59,6 @@ function highlight(){
 // reset the game
 function resetGame(){
 }
+
 
 ticTac.init();
