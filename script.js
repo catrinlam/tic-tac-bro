@@ -10,42 +10,42 @@ createBoard();
 
 
 // create the board
- function createBoard() {
+function createBoard() {
     let board = document.getElementById("board");
     let grid = board.innerHTML = `<table>
-    <td  class="cell" >0</td>
-    <td class="cell" >0</td>
-    <td class="cell" >0</td>
-  </tr >
-  <tr>
-    <td class="cell" >0</td>
-    <td class="cell" >0</td>
-    <td class="cell" >0</td>
-  </tr>
-  <tr>
-    <td class="cell" >0</td>
-    <td class="cell" >0</td>
-    <td class="cell" >0</td>
-  </tr>
-</table > `;
+    <tr>
+        <td class="cell">0</td>
+        <td class="cell">0</td>
+        <td class="cell">0</td>
+    </tr>
+    <tr>
+        <td class="cell">0</td>
+        <td class="cell">0</td>
+        <td class="cell">0</td>
+    </tr>
+    <tr>
+        <td class="cell">0</td>
+        <td class="cell">0</td>
+        <td class="cell">0</td>
+    </tr>
+</table>`;
     // add event listener to each cell
     let cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
         cell.addEventListener("click", handleClick);
+        cell.style.width = "100px";
+        cell.style.height = "100px";
+        cell.style.textAlign = "center";
+        cell.style.verticalAlign = "middle";
+        cell.style.fontSize = "24px";
+        cell.style.border = "1px solid black"; // Added border to cells
     });
 };
-
-
-
-
-
-
-
 
 // handle cicks on cells
 function handleClick(e){
     if (e.target.innerHTML === "0") {
-        e.target.innerHTML = currentPlayer === 0 ? "X" : "O";
+        e.target.innerHTML = currentPlayer === 0 ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-o"></i>`;
         currentPlayer = 1 - currentPlayer;
     }
     
