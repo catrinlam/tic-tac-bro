@@ -6,27 +6,31 @@ var points1 = 0;    // player 1 points
 var points2 = 0;    // player 2 points
 var size = 3;
 
-
+createBoard();
 
 
 // create the board
  function createBoard() {
-         let parent = document.getElementById("board");
-         let counter = 1;
-
-         for (let i = 0; i < 3; i++) {
-             let row = document.createElement("tr");
-
-             for (let x = 0; x < size; x++) {
-                 let col = document.createElement("td");
-                 col.innerHTML = counter;
-
-                 row.appendChild(col);
-             }
-             parent.appendChild(row);
-         }
+    let board = document.getElementById("board");
+    let grid = board.innerHTML = `<table>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr >
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table > `;
+    
 };
-createBoard();
+
 
 
 
@@ -64,5 +68,3 @@ function highlight(){
 function resetGame(){
 }
 
-
-ticTac.init();
