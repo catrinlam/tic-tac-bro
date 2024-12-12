@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--Stylesheets-->
     <link rel="stylesheet" href="assets/style.css">
@@ -10,13 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <title>Tic Tack Bros</title>
+    <title>Tic Tac Bros</title>
 </head>
 <body>
 
 <!-- Header -->
     <header>
-        <nav class="navbar bg-body-tertiary">
+        <nav id="nav" class="navbar bg-body-tertiary">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"> <img id="navimage"src="assets/images/apple-touch-icon.png" 
                 alt="The Tic Tac Bros Icon. A 3 by 3 board with X and O's on"> Tic Tac Bros </a> 
@@ -27,6 +27,9 @@
 <!-- Main -->
  <main>
     <div id="main">
+
+        <br>
+
         <div id="gamemode">
             <button id="computer">Vs Computer</button>
             <button id="2player">2 Player</button>
@@ -41,9 +44,12 @@
         <br>
 
         <div id="counter">
-            <div id="x"><i class="fa-solid fa-x"></i></div>
-            <div id="="><i class="fa-solid fa-equals"></i></div>
-            <div id="o"><i class="fa-solid fa-o"></i></div>
+            <div><i id="x" class="fa-solid fa-x"></i></div>
+            <div><i id="=" class="fa-solid fa-equals"></i></div>
+            <div><i id="o" class="fa-solid fa-o"></i></div>
+            <div id="xscore"></div>
+            <div id="=score"></div>
+            <div id="oscore"></div>
         </div>
 
     </div>
