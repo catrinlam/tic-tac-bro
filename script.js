@@ -14,19 +14,19 @@ function createBoard() {
     let board = document.getElementById("board");
     let grid = board.innerHTML = `<table>
     <tr>
-        <td class="cell">0</td>
-        <td class="cell">0</td>
-        <td class="cell">0</td>
+        <td class="cell"></td>
+        <td class="cell"></td>
+        <td class="cell"></td>
     </tr>
     <tr>
-        <td class="cell">0</td>
-        <td class="cell">0</td>
-        <td class="cell">0</td>
+        <td class="cell"></td>
+        <td class="cell"></td>
+        <td class="cell"></td>
     </tr>
     <tr>
-        <td class="cell">0</td>
-        <td class="cell">0</td>
-        <td class="cell">0</td>
+        <td class="cell"></td>
+        <td class="cell"></td>
+        <td class="cell"></td>
     </tr>
 </table>`;
     // add event listener to each cell
@@ -42,17 +42,20 @@ function createBoard() {
     });
 };
 
-// handle cicks on cells
+// handle clicks on cells
 function handleClick(e){
-    if (e.target.innerHTML === "0") {
+    if (e.target.innerHTML === "") {
         e.target.innerHTML = currentPlayer === 0 ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-o"></i>`;
         currentPlayer = 1 - currentPlayer;
+        checkForWin();
+    } else {
+        alert("This cell is already taken!");
     }
-    
 }
 
 // check for a win
 function checkForWin(){
+    const cells = document.querySelectorAll(".cell");
     const wins = [
         [0, 1, 2],
         [3, 4, 5],
@@ -63,11 +66,11 @@ function checkForWin(){
         [0, 4, 8],
         [2, 4, 6], // Diagonals
     ];
-    return wins.find((combo) =>
-        combo.every((i) => this.state[i] === this.currentPlayer)
+    const currentPlayerClass = currentPlayer === 0 ? "fa-x" : "fa-o";
+    return wins.some((combo) =>
+        combo.every((i) => cells[i].querySelector(`.${currentPlayerClass}`))
     );
 }
-
 
 // highlight the winning cells
 function highlight(){
