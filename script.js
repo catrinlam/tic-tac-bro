@@ -1,17 +1,22 @@
-var winners = new Array();
-var player1Selections = new Array();
-var player2Selections = new Array();
-var currentPlayer = 0;
-var points1 = 0;    // player 1 points
-var points2 = 0;    // player 2 points
-var size = 3;
+let winners = new Array();
+let player1Selections = new Array();
+let player2Selections = new Array();
+let currentPlayer = 0;
+let playerOne = 1
+let playerTwo = 0
+let points1 = 0;    // player 1 points
+let points2 = 0;    // player 2 points
+
+
 
 resetBtn = document.getElementById("reset");
 resetBtn.addEventListener("click", resetGame);
 createBoard();
 
 
-// create the board
+/*
+Function to create the board
+*/
 function createBoard() {
     let board = document.getElementById("board");
     let grid = board.innerHTML = `<table>
@@ -44,15 +49,19 @@ function createBoard() {
     });
 };
 
-// handle clicks on cells
+/*
+Function to handle clicks on cells
+*/
 function handleClick(e){
+    checkForWin();
     if (e.target.innerHTML === "") {
         e.target.innerHTML = currentPlayer === 0 ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-o"></i>`;
         currentPlayer = 1 - currentPlayer;
-        checkForWin();
+        
     } else {
         alert("Oi pick your own square!");
     }
+    console.log(currentPlayer);
 }
 
 // check for a win
@@ -68,7 +77,20 @@ function checkForWin(){
         [0, 4, 8],
         [2, 4, 6], // Diagonals
     ];
-    
+    let winner = false;
+    if (winner === false) {
+        wins.forEach((win) => {
+            const [a, b, c] = win;
+            if (cells[a].innerHTML !== "" && cells[a].innerHTML === cells[b].innerHTML && cells[a].innerHTML === cells[c].innerHTML) {
+                winner = true;
+                console.log("winner");
+                highlight();
+                if (currentPlayer === 1) {
+                    console.log("Player 1 wins");
+                }
+            } 
+        });
+    }
 }
 
 // highlight the winning cells
