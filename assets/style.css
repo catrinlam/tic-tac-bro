@@ -1,4 +1,9 @@
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 nav {
     display: block;
     position: relative;
@@ -14,7 +19,6 @@ nav {
 }
 
 
-
 #main {
     display: flex;
     flex-direction: column;
@@ -25,11 +29,6 @@ nav {
     width: 300px; /* Adjust width as needed */
     height: 300px; /* Adjust height as needed */
     background-color: #f0f0f0; /* Example background color */
-    margin-bottom: 20px; /* Space between board and reset button */
-}
-
-#reset {
-    margin-bottom: 20px; /* Space between reset button and counter */
 }
 
 #counter {
@@ -41,11 +40,11 @@ nav {
 
 
 footer {
-    position: bottom sticky;
+    position: sticky;
     bottom: 0;
     width: 100%;
     height: 50px;
     padding-left: 10px;
     font-size: 12px;
-    background-color: blue;
+    border-color: black;
   }
