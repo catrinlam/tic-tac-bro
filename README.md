@@ -124,6 +124,8 @@ Please see [TESTING.md](TESTING.md) file for all manual testing.
 #### Media References
 
 
-#### Acknowledgements
-Special thanks to Amina and Grace
+#### Team
+- Amina [GitHub](https://github.com/aminoacid-01)
+- Catrin [GitHub](https://github.com/catrinlam)
+- Grace [GitHub](https://github.com/Gracey46)
 
