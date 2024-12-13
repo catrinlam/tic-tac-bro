@@ -31,13 +31,12 @@ let computer = false;
 const computerBtn = document.getElementById("computer");
 computerBtn.addEventListener("click", () => {
     resetGame(); // reset board for new game 
+    resetScores(); // reset scores
     currentPlayer = 'X';
     endMessage.textContent = `X's turn!`;
     computer = true;
     console.log("Computer mode activated!");
     computerMove();
-    scores = { X: 0, O: 0 }; // reset scores
-    updateScores();
 });
 // event listener for 2 player button and to start 2 player mode
 const twoPlayerBtn = document.getElementById("2player");
@@ -47,11 +46,14 @@ twoPlayerBtn.addEventListener("click", () => {
     endMessage.textContent = `X's turn!`;
     computer = false;
     console.log("2 player mode activated!");
-    scores = { X: 0, O: 0 }; // reset scores
-    updateScores();
 });
 
 let playerMoved = false;
+
+function resetScores(){
+    scores = { X: 0, O: 0 };
+    updateScores();
+}
 
 function computerMove() {
     if (someoneWon || !playerMoved) return;
@@ -162,7 +164,6 @@ function handleClick(cell, index) {
 function updateScores() {
     document.getElementById("xscore").innerHTML = `X  =  ${scores.X}`;
     document.getElementById("oscore").innerHTML = `O  =  ${scores.O}`;
-    setTimeout(resetGame, 2000); // auto resets game after 2 seconds
 }
 
 function checkWin(player) {
@@ -176,6 +177,7 @@ function checkWin(player) {
             cells[c].textContent === player
         ) {
             highlight(combination);
+            setTimeout(resetGame, 2000); // auto resets game after 2 seconds
             return true;
         }
         return false;
