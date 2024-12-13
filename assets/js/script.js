@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 let currentPlayer = 'X';
 const players = ['X', 'O'];
 const winningCombinations = [
@@ -24,6 +25,61 @@ endMessage.textContent = `X's turn!`;
 endMessage.style.marginTop = "30px";
 endMessage.style.textAlign = "center";
 document.getElementById("board").after(endMessage);
+
+let computer = false;
+// event listener for computer button and to start computer mode
+const computerBtn = document.getElementById("computer");
+computerBtn.addEventListener("click", () => {
+    resetGame(); // reset board for new game 
+    currentPlayer = 'X';
+    endMessage.textContent = `X's turn!`;
+    computer = true;
+    console.log("Computer mode activated!");
+    computerMove();
+});
+// event listener for 2 player button and to start 2 player mode
+const twoPlayerBtn = document.getElementById("2player");
+twoPlayerBtn.addEventListener("click", () => {
+    resetGame(); // reset board for new game
+    currentPlayer = 'X';
+    endMessage.textContent = `X's turn!`;
+    computer = false;
+    console.log("2 player mode activated!");
+});
+
+let playerMoved = false;
+
+function computerMove() {
+    if (someoneWon || !playerMoved) return;
+
+    const cells = document.querySelectorAll(".cell"); 
+    const emptyCells = Array.from(cells).filter(cell => cell.textContent === ""); // get empty cells
+
+    if (emptyCells.length === 0) return; 
+
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const cell = emptyCells[randomIndex]; // pick a random empty cell
+    cell.textContent = 'O'; 
+
+    // check if computer wins
+    if (checkWin('O')) {
+        someoneWon = true;
+        endMessage.textContent = `Game over! O wins!`;
+        scores['O']++;
+        console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
+        updateScores();
+        return;
+    }
+    // check if game is tied
+    if (checkTie()) {
+        someoneWon = true;
+        endMessage.textContent = "Game is tied!";
+        return;
+    }
+    // switch back to player X
+    currentPlayer = 'X';
+    endMessage.textContent = `${currentPlayer}'s turn!`;
+}
 
 /*
 
@@ -74,6 +130,7 @@ function handleClick(cell, index) {
     }
 
     cell.textContent = currentPlayer;
+    playerMoved = true;
 
     if (checkWin(currentPlayer)) {
         someoneWon = true;
@@ -92,6 +149,10 @@ function handleClick(cell, index) {
 
     currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
     endMessage.textContent = `${currentPlayer}'s turn!`;
+
+    if (computer) {
+        setTimeout(computerMove, 1000); // delay computer move by 1 second
+    }
 }
 
 function updateScores() {
@@ -137,5 +198,6 @@ function resetGame() {
     });
     currentPlayer = players[0];
     someoneWon = false;
+    playerMoved = false;
     endMessage.textContent = "X's turn!";
 }
