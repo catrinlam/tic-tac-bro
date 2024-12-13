@@ -36,6 +36,8 @@ computerBtn.addEventListener("click", () => {
     computer = true;
     console.log("Computer mode activated!");
     computerMove();
+    scores = { X: 0, O: 0 }; // reset scores
+    updateScores();
 });
 // event listener for 2 player button and to start 2 player mode
 const twoPlayerBtn = document.getElementById("2player");
@@ -45,6 +47,8 @@ twoPlayerBtn.addEventListener("click", () => {
     endMessage.textContent = `X's turn!`;
     computer = false;
     console.log("2 player mode activated!");
+    scores = { X: 0, O: 0 }; // reset scores
+    updateScores();
 });
 
 let playerMoved = false;
@@ -156,8 +160,8 @@ function handleClick(cell, index) {
 }
 
 function updateScores() {
-    document.getElementById("xscore").innerHTML = `X  =  ${scores.X}</span>`;
-    document.getElementById("oscore").innerHTML = `<span>O  =  ${scores.O}</span>`;
+    document.getElementById("xscore").innerHTML = `X  =  ${scores.X}`;
+    document.getElementById("oscore").innerHTML = `O  =  ${scores.O}`;
     setTimeout(resetGame, 2000); // auto resets game after 2 seconds
 }
 
