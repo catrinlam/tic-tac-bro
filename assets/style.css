@@ -101,7 +101,15 @@ footer {
     height: 50px;
     padding-left: 10px;
     font-size: 12px;
-    background-color: black;
+    background-color: #F0C293;
+  }
+
+  #footer {
+   
+    font-family: "Fontdiner Swanky", serif;
+    font-size: 12px;
+    color: #221C1B;
+    padding: 20px 0px;
   }
 
   /*Bar screen size change*/
