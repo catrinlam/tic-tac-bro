@@ -11,6 +11,9 @@ const winningCombinations = [
     [2, 4, 6], // Diagonals
 ];
 let someoneWon = false;
+let scores = { 
+    X: 0, 
+    O: 0 }; // keep track of scores
 
 const resetBtn = document.getElementById("reset");
 resetBtn.addEventListener("click", resetGame);
@@ -75,6 +78,9 @@ function handleClick(cell, index) {
     if (checkWin(currentPlayer)) {
         someoneWon = true;
         endMessage.textContent = `Game over! ${currentPlayer} wins!`;
+        scores[currentPlayer]++; // increment score
+        console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);  //log scores in console
+        updateScores();
         return;
     }
 
@@ -86,6 +92,11 @@ function handleClick(cell, index) {
 
     currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
     endMessage.textContent = `${currentPlayer}'s turn!`;
+}
+
+function updateScores() {
+    document.getElementById("xscore").innerHTML = `X  =  ${scores.X}</span>`;
+    document.getElementById("oscore").innerHTML = `<span>O  =  ${scores.O}</span>`;
 }
 
 function checkWin(player) {
