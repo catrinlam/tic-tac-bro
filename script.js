@@ -6,6 +6,16 @@ let playerOne = 1
 let playerTwo = 0
 let points1 = 0;    // player 1 points
 let points2 = 0;    // player 2 points
+const wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8], // Rows
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8], // Columns
+    [0, 4, 8],
+    [2, 4, 6], // Diagonals
+];
 
 
 
@@ -67,16 +77,7 @@ function handleClick(e){
 // check for a win
 function checkForWin(){
     const cells = document.querySelectorAll(".cell");
-    const wins = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8], // Rows
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8], // Columns
-        [0, 4, 8],
-        [2, 4, 6], // Diagonals
-    ];
+    
     let winner = false;
     if (winner === false) {
         wins.forEach((win) => {
@@ -95,6 +96,16 @@ function checkForWin(){
 
 // highlight the winning cells
 function highlight(){
+    const cells = document.querySelectorAll(".cell")
+    wins.forEach((win) => {
+        const [a, b, c] = win;
+        if (cells[a].innerHTML !== "" && cells[a].innerHTML === cells[b].innerHTML && cells[a].innerHTML === cells[c].innerHTML) {
+            cells[a].style.backgroundColor = "green";
+            cells[b].style.backgroundColor = "green";
+            cells[c].style.backgroundColor = "green";
+        }
+    });
+
 }
 
 // reset the game
@@ -102,6 +113,9 @@ function resetGame(){
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
         cell.innerHTML = "";
+    });
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = "white";
     });
     console.log("resetting game");
     
