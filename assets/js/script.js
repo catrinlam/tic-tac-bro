@@ -71,7 +71,7 @@ function computerMove() {
     if (checkWin('O')) {
         someoneWon = true;
         endMessage.textContent = `Game over! O wins!`;
-        scores['O']++;
+        scores.O++;
         console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
         updateScores();
         return;
