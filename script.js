@@ -22,6 +22,11 @@ endMessage.style.marginTop = "30px";
 endMessage.style.textAlign = "center";
 document.getElementById("board").after(endMessage);
 
+/*
+
+*Function to create the board
+
+*/
 function createBoard() {
     let board = document.getElementById("board");
     board.innerHTML = `<table>
@@ -41,7 +46,7 @@ function createBoard() {
             <td class="cell"></td>
         </tr>
     </table>`;
-
+    // add event listener to each cell
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell, index) => {
         cell.addEventListener("click", () => handleClick(cell, index));
@@ -54,8 +59,16 @@ function createBoard() {
     });
 }
 
+/*
+
+Function to handle clicks on cells
+
+*/
 function handleClick(cell, index) {
-    if (someoneWon || cell.textContent !== "") return;
+    if (someoneWon || cell.textContent !== ""){
+        endMessage.textContent = "Oi pick your own square!";
+        return;
+    }
 
     cell.textContent = currentPlayer;
 
