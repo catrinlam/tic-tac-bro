@@ -112,6 +112,9 @@ Please see [TESTING.md](TESTING.md) file for all manual testing.
 
 
 ### Credits
+ - https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ - Used the win conditions array to define our win conditions. 
+ - https://www.thatsoftwaredude.com/content/6189/step-by-step-guide-to-coding-tic-tac-toe-in-javascript - Followed some of the steps to help write the Javascript. 
+ - Copilot - Used for autocomplete and to add styles in the JavaScript for faster coding.
 #### Content References
 
 #### Media References
