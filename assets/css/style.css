@@ -28,6 +28,13 @@ nav {
     margin-left: auto;
 }
 
+.dropdown-menu{
+    background-color: #F0C293;
+    border: 4px solid #F0C293;
+    width: 40px;
+    height: 40px;   
+}
+
 #bar{
     width:50px;
     height:50px;
