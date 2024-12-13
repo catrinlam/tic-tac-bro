@@ -96,7 +96,10 @@ Responsive layout ensures the grid scales appropriately, and buttons are easily 
 
 #### Frameworks/Libraries/Programs
 - [Insert any frameworks or libraries, e.g., Bootstrap, jQuery]
-- Design software: [Insert design tools, e.g., Figma]
+- Design software: 
+  - Figma
+  - Balsamiq
+  - Coolors 
 
 ### Deployment
 - The site was deployed to GitHub pages. The steps to deploy are as follows:
@@ -112,7 +115,7 @@ Please see [TESTING.md](TESTING.md) file for all manual testing.
 
 
 ### Credits
- - https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ - Used the win conditions array to define our win conditions. 
+ - https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ - Used the wins array to define our win conditions. 
  - https://www.thatsoftwaredude.com/content/6189/step-by-step-guide-to-coding-tic-tac-toe-in-javascript - Followed some of the steps to help write the Javascript. 
  - Copilot - Used for autocomplete and to add styles in the JavaScript for faster coding.
  - https://medium.com/@canankorkut1/how-to-create-a-tic-tac-toe-with-html-css-and-javascript-10a25fddd356 
