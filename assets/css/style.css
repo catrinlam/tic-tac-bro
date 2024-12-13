@@ -64,6 +64,11 @@ h1{
     align-items: center;
     height: 600px;
     font-family: "Fontdiner Swanky", serif;
+    margin: 2em;
+}
+
+#gamemode, #reset {
+    margin: 1em;
 }
 
 button{
