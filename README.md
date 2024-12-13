@@ -25,29 +25,29 @@ Visit the live site [here](https://catrin.is-a.dev/tic-tac-bro/)
 - As a user, I want to easily navigate the website and start a game without hassle.
 - As a user, I want the website to look visually appealing and responsive on all devices.
 
-##### Navigation Bar
+**Navigation Bar**
 
 - As a user, I can read a clear title and a rules toggle so that I know the website name and read the rules of the game.
 
-##### Switching Mode Button
+**Switching Mode Button**
 
 - As a user, I can switch between two gaming modes, one-to-one and computer mode, so that I can play with another player or against a computer.
 
-##### Game
+**Game**
 
 - As a user, I can see the gaming board and a reset so that I can play Tic-Tac-Toe with another player locally.
 - As a user, I can see the text showing which turn is it so that I know which player can make the move now.
 - As a user, I can see the winning cells highlighted so that I know how the player won.
 
-##### Reset Button
+**Reset Button**
 
 - As a user, I can see the reset button so that I can restart the game.
 
-##### Score Board
+**Score Board**
 
 - As a user, I can see the score between two players so that I know the results.
 
-##### Footer
+**Footer**
 
 - As a user, I can see the credit in the footer.
 
@@ -65,11 +65,11 @@ The website structure follows a single-page design, making it easy for users to 
 
 #### Skeleton (Wireframes)
 
-Mobile View:
+**Mobile View**:
 
   <img src="assets/images/docs/wireframes/mobile.png" alt="Mobile Wireframes" style="height: 400px; width: auto;">
 
-Tablet View:
+**Tablet View**:
 
   <img src="assets/images/docs/wireframes/tablet.png" alt="Tablet Wireframes" style="height: 600px; width: auto;">
 
@@ -113,6 +113,47 @@ Minimalist and modern imagery focusing on the Tic-Tac-Toe grid and game pieces.
 
 #### JavaScript Logic/Functionality
 
+**Board Creation**
+
+- The `createBoard` function generates a 3x3 grid dynamically using HTML.
+- Each cell is styled and linked to an event listener for user interaction.
+- This ensures that the game can reset and rebuild the board dynamically.
+
+**Handling User Clicks**
+
+- The `handleClick` function ensures that only empty cells can be selected.
+- It updates the cell with the current player's symbol (X or O) and switches to the next player.
+- If the game is already won or the cell is not empty, it prevents further interaction.
+
+**Check for a Win**
+
+- The `checkWin` function uses predefined `winningCombinations` to determine if a player has successfully aligned three symbols.
+- It checks all cells in each combination to match the current player's symbol.
+- If a winning combination is found, the cells are highlighted with a green background using the `highlight` function.
+
+**Highlighting Winning Combination**
+
+- The `highlight` function colours the winning cells to visually indicate the winning line.
+
+**Check for a Tie**
+
+- The `checkTie` function checks if all cells are filled without a winner.
+- It uses the `Array.from` method to convert the cell list into an array and ensures none are empty.
+
+**Update and Display Scores**
+
+- The `updateScores` function keeps track of the scores for each player (X and O).
+- It updates the DOM to display the current scores after each win.
+
+**Game Reset**
+
+- The `resetGame` function clears the board, resets the winning state, and prepares the game for a new round.
+- It ensures that the background colour and symbols are cleared, and the game starts with player X.
+
+**Dynamic Player Turn Indicator**
+
+- The `endMessage` dynamically updates to show whose turn it is, whether the game is tied, or if there’s a winner.
+- This ensures the user is informed at every stage of the game.
 
 ### Tablet/Mobile View
 
@@ -138,7 +179,7 @@ Responsive layout ensures the grid scales appropriately, and buttons are easily 
 
   - Bootstrap
   - Font Awesome
-  - Google Font
+  - Google Fonts
 
 - Design software:
   - Figma
@@ -162,14 +203,16 @@ Please see [TESTING.md](TESTING.md) file for all manual testing.
 
 ### Credits
 
-#### Content References
-
 - https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ - Used the wins array to define our win conditions.
 - https://www.thatsoftwaredude.com/content/6189/step-by-step-guide-to-coding-tic-tac-toe-in-javascript - Followed some of the steps to help write the Javascript.
-- Copilot - Used for autocomplete and to add styles in the JavaScript for faster coding.
 - https://medium.com/@canankorkut1/how-to-create-a-tic-tac-toe-with-html-css-and-javascript-10a25fddd356 - Used for implementing game logic.
+- Copilot - Used for autocomplete and to add styles in the JavaScript for faster coding.
 
-#### Media References
+
+#### Content References
+
+- [Google Fonts](https://fonts.google.com/) was used for font styling
+- [Font Awesome](https://fontawesome.com/) was used for X and O icons
 
 #### Team
 
