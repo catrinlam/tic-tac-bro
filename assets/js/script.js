@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 let currentPlayer = 'X';
 const players = ['X', 'O'];
 const winningCombinations = [
@@ -30,10 +31,44 @@ const computerBtn = document.getElementById("computer");
 computerBtn.addEventListener("click", () => {
     resetGame();
     currentPlayer = 'X';
-    createBoard();
     endMessage.textContent = `X's turn!`;
     computer = true;
+    console.log("Computer mode activated!");
+    computerMove();
 });
+
+let playerMoved = false;
+
+function computerMove() {
+    if (someoneWon || !playerMoved) return;
+
+    const cells = document.querySelectorAll(".cell");
+    const emptyCells = Array.from(cells).filter(cell => cell.textContent === "");
+
+    if (emptyCells.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const cell = emptyCells[randomIndex];
+    cell.textContent = 'O';
+
+    if (checkWin('O')) {
+        someoneWon = true;
+        endMessage.textContent = `Game over! O wins!`;
+        scores['O']++;
+        console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
+        updateScores();
+        return;
+    }
+
+    if (checkTie()) {
+        someoneWon = true;
+        endMessage.textContent = "Game is tied!";
+        return;
+    }
+
+    currentPlayer = 'X';
+    endMessage.textContent = `${currentPlayer}'s turn!`;
+}
 
 /*
 
@@ -84,6 +119,7 @@ function handleClick(cell, index) {
     }
 
     cell.textContent = currentPlayer;
+    playerMoved = true;
 
     if (checkWin(currentPlayer)) {
         someoneWon = true;
@@ -100,8 +136,12 @@ function handleClick(cell, index) {
         return;
     }
 
-    currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
+    currentPlayer = 'O';
     endMessage.textContent = `${currentPlayer}'s turn!`;
+
+    if (computer) {
+        setTimeout(computerMove, 500); // delay computer move for better UX
+    }
 }
 
 function updateScores() {
@@ -147,5 +187,6 @@ function resetGame() {
     });
     currentPlayer = players[0];
     someoneWon = false;
+    playerMoved = false;
     endMessage.textContent = "X's turn!";
 }
