@@ -25,6 +25,16 @@ endMessage.style.marginTop = "30px";
 endMessage.style.textAlign = "center";
 document.getElementById("board").after(endMessage);
 
+let computer = false;
+const computerBtn = document.getElementById("computer");
+computerBtn.addEventListener("click", () => {
+    resetGame();
+    currentPlayer = 'X';
+    createBoard();
+    endMessage.textContent = `X's turn!`;
+    computer = true;
+});
+
 /*
 
 *Function to create the board
