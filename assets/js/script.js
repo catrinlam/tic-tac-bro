@@ -30,7 +30,7 @@ let computer = false;
 // event listener for computer button and to start computer mode
 const computerBtn = document.getElementById("computer");
 computerBtn.addEventListener("click", () => {
-    resetGame();
+    resetGame(); // reset board for new game 
     currentPlayer = 'X';
     endMessage.textContent = `X's turn!`;
     computer = true;
@@ -40,7 +40,7 @@ computerBtn.addEventListener("click", () => {
 // event listener for 2 player button and to start 2 player mode
 const twoPlayerBtn = document.getElementById("2player");
 twoPlayerBtn.addEventListener("click", () => {
-    resetGame();
+    resetGame(); // reset board for new game
     currentPlayer = 'X';
     endMessage.textContent = `X's turn!`;
     computer = false;
@@ -151,7 +151,7 @@ function handleClick(cell, index) {
     endMessage.textContent = `${currentPlayer}'s turn!`;
 
     if (computer) {
-        setTimeout(computerMove, 500); // delay computer move for better UX
+        setTimeout(computerMove, 1000); // delay computer move by 1 second
     }
 }
 
