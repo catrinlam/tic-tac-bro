@@ -97,6 +97,7 @@ function handleClick(cell, index) {
 function updateScores() {
     document.getElementById("xscore").innerHTML = `X  =  ${scores.X}</span>`;
     document.getElementById("oscore").innerHTML = `<span>O  =  ${scores.O}</span>`;
+    setTimeout(resetGame, 2000); // auto resets game after 2 seconds
 }
 
 function checkWin(player) {
