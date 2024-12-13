@@ -27,6 +27,7 @@ endMessage.style.textAlign = "center";
 document.getElementById("board").after(endMessage);
 
 let computer = false;
+// event listener for computer button and to start computer mode
 const computerBtn = document.getElementById("computer");
 computerBtn.addEventListener("click", () => {
     resetGame();
@@ -36,21 +37,31 @@ computerBtn.addEventListener("click", () => {
     console.log("Computer mode activated!");
     computerMove();
 });
+// event listener for 2 player button and to start 2 player mode
+const twoPlayerBtn = document.getElementById("2player");
+twoPlayerBtn.addEventListener("click", () => {
+    resetGame();
+    currentPlayer = 'X';
+    endMessage.textContent = `X's turn!`;
+    computer = false;
+    console.log("2 player mode activated!");
+});
 
 let playerMoved = false;
 
 function computerMove() {
     if (someoneWon || !playerMoved) return;
 
-    const cells = document.querySelectorAll(".cell");
-    const emptyCells = Array.from(cells).filter(cell => cell.textContent === "");
+    const cells = document.querySelectorAll(".cell"); 
+    const emptyCells = Array.from(cells).filter(cell => cell.textContent === ""); // get empty cells
 
-    if (emptyCells.length === 0) return;
+    if (emptyCells.length === 0) return; 
 
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
-    const cell = emptyCells[randomIndex];
-    cell.textContent = 'O';
+    const cell = emptyCells[randomIndex]; // pick a random empty cell
+    cell.textContent = 'O'; 
 
+    // check if computer wins
     if (checkWin('O')) {
         someoneWon = true;
         endMessage.textContent = `Game over! O wins!`;
@@ -59,13 +70,13 @@ function computerMove() {
         updateScores();
         return;
     }
-
+    // check if game is tied
     if (checkTie()) {
         someoneWon = true;
         endMessage.textContent = "Game is tied!";
         return;
     }
-
+    // switch back to player X
     currentPlayer = 'X';
     endMessage.textContent = `${currentPlayer}'s turn!`;
 }
