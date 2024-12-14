@@ -150,6 +150,7 @@ function handleClick(cell, index) {
     if (checkTie()) {
         someoneWon = true;
         endMessage.textContent = "Game is tied!";
+        setTimeout(resetGame, 2000); // auto resets game after 2 seconds
         return;
     }
 
@@ -200,7 +201,7 @@ function resetGame() {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(cell => {
         cell.textContent = "";
-        cell.style.backgroundColor = "white";
+        cell.style.backgroundColor = "#f0f0f0";
     });
     currentPlayer = players[0];
     someoneWon = false;
