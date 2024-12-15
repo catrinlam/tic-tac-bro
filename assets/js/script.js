@@ -112,7 +112,7 @@ function resetScores(){
 
 /**
  * Function for Vs Computer mode
-    */
+ */
 function computerMove() {
     if (someoneWon || !playerMoved) return; // if someone won or player hasn't moved, return
 
@@ -121,8 +121,97 @@ function computerMove() {
 
     if (emptyCells.length === 0) return;  // if no empty cells, return
 
+    // Check if computer can win
+    for (let combination of winningCombinations) {
+        const [a, b, c] = combination;
+        if (
+            cells[a].textContent === 'O' &&
+            cells[b].textContent === 'O' &&
+            cells[c].textContent === ''
+        ) {
+            cells[c].textContent = 'O';
+            cells[c].style.color = "#A54657"; // Make Os red
+            someoneWon = true;
+            endMessage.textContent = `Game over! O wins!`;
+            scores.O++;
+            console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
+            updateScores();
+            return;
+        }
+        if (
+            cells[a].textContent === 'O' &&
+            cells[b].textContent === '' &&
+            cells[c].textContent === 'O'
+        ) {
+            cells[b].textContent = 'O';
+            cells[b].style.color = "#A54657"; // Make Os red
+            someoneWon = true;
+            endMessage.textContent = `Game over! O wins!`;
+            scores.O++;
+            console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
+            updateScores();
+            return;
+        }
+        if (
+            cells[a].textContent === '' &&
+            cells[b].textContent === 'O' &&
+            cells[c].textContent === 'O'
+        ) {
+            cells[a].textContent = 'O';
+            cells[a].style.color = "#A54657"; // Make Os red
+            someoneWon = true;
+            endMessage.textContent = `Game over! O wins!`;
+            scores.O++;
+            console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
+            updateScores();
+            return;
+        }
+    }
+
+    // Check if computer needs to block player
+    for (let combination of winningCombinations) {
+        const [a, b, c] = combination;
+        // Check if computer can block player
+        if (
+            cells[a].textContent === 'X' &&
+            cells[b].textContent === 'X' &&
+            cells[c].textContent === ''
+        ) {
+            cells[c].textContent = 'O';
+            cells[c].style.color = "#A54657"; // Make Os red
+            currentPlayer = 'X';
+            endMessage.textContent = `${currentPlayer}'s turn!`;
+            return;
+        }
+        // Check if computer can block player
+        if (
+            cells[a].textContent === 'X' &&
+            cells[b].textContent === '' &&
+            cells[c].textContent === 'X'
+        ) {
+            cells[b].textContent = 'O';
+            cells[b].style.color = "#A54657"; // Make Os red
+            currentPlayer = 'X';
+            endMessage.textContent = `${currentPlayer}'s turn!`;
+            return;
+        }
+        // Check if computer can win
+        if (
+            cells[a].textContent === '' &&
+            cells[b].textContent === 'X' &&
+            cells[c].textContent === 'X'
+        ) {
+            cells[a].textContent = 'O';
+            cells[a].style.color = "#A54657"; // Make Os red
+            currentPlayer = 'X';
+            endMessage.textContent = `${currentPlayer}'s turn!`;
+            return;
+        }
+    }
+
+    // Pick a random empty cell if no winning or blocking move
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
-    const cell = emptyCells[randomIndex]; // pick a random empty cell
+    const cell = emptyCells[randomIndex];
     cell.textContent = 'O'; 
     cell.style.color = "#A54657"; // Make Os red
 
