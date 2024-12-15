@@ -180,7 +180,7 @@ function handleClick(cell, index) {
     endMessage.textContent = `${currentPlayer}'s turn!`;
 
     if (computer && currentPlayer === 'O') {
-        setTimeout(computerMove, 1000); // delay computer move by 1 second
+        setTimeout(computerMove, 700); // delay computer move by 700ms
     }
 }
 /**
