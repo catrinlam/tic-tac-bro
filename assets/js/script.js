@@ -16,8 +16,13 @@ let scores = {
     X: 0, 
     O: 0 }; // keep track of scores
 
+resetScores(); // initialize scores to 0
+
 const resetBtn = document.getElementById("reset");
-resetBtn.addEventListener("click", resetGame);
+resetBtn.addEventListener("click", () => {
+    resetGame();
+    resetScores();
+});
 createBoard();
 
 const endMessage = document.createElement("h2");
