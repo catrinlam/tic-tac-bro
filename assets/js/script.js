@@ -99,7 +99,7 @@ twoPlayerBtn.addEventListener("mouseout", () => {
 twoPlayerBtn.style.backgroundColor = "#60A561";
 twoPlayerBtn.style.border = "2px solid #335B34";
 
-let playerMoved = false;
+let playerMoved = false; 
 
 
 /**
@@ -114,7 +114,7 @@ function resetScores(){
  * Function for Vs Computer mode
     */
 function computerMove() {
-    if (someoneWon || !playerMoved) return;
+    if (someoneWon || !playerMoved) return; // if someone won or player hasn't moved, return
 
     const cells = document.querySelectorAll(".cell"); 
     const emptyCells = Array.from(cells).filter(cell => cell.textContent === ""); // get empty cells
@@ -124,6 +124,7 @@ function computerMove() {
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
     const cell = emptyCells[randomIndex]; // pick a random empty cell
     cell.textContent = 'O'; 
+    cell.style.color = "#A54657"; // Make Os red
 
     // check if computer wins
     if (checkWin('O')) {
@@ -179,7 +180,7 @@ function createBoard() {
         cell.style.textAlign = "center";
         cell.style.verticalAlign = "middle";
         cell.style.fontSize = "24px";
-        cell.style.border = "2px solid black";
+        cell.style.border = "2px solid #221C1B";
     });
 }
 
@@ -197,6 +198,12 @@ function handleClick(cell, index) {
     }
 
     cell.textContent = currentPlayer;
+    if (currentPlayer === 'X') {
+        cell.style.color = "#5B7882"; // Make Xs blue
+    }
+    if (currentPlayer === 'O') {
+        cell.style.color = "#A54657"; // Make Os red
+    }
     playerMoved = true;
 
     if (checkWin(currentPlayer)) {
@@ -226,8 +233,25 @@ function handleClick(cell, index) {
  * Function to update scores
  */
 function updateScores() {
-    document.getElementById("xscore").innerHTML = `X  =  ${scores.X}`;
-    document.getElementById("oscore").innerHTML = `O  =  ${scores.O}`;
+    const xScoreElement = document.getElementById("xscore");
+    const oScoreElement = document.getElementById("oscore");
+
+    xScoreElement.innerHTML = `X  =  ${scores.X}`;
+    oScoreElement.innerHTML = `O  =  ${scores.O}`;
+
+    const winner = scores.X > scores.O ? 'X' : (scores.O > scores.X ? 'O' : null); // get winner
+    const loser = scores.X > scores.O ? 'O' : (scores.O > scores.X ? 'X' : null); // get loser
+    // highlight winner and loser
+    if (winner && loser) {
+        const winnerElement = document.getElementById(`${winner.toLowerCase()}score`);
+        const loserElement = document.getElementById(`${loser.toLowerCase()}score`);
+
+        winnerElement.style.color = "#00FF00"; // Green for winner
+        loserElement.style.color = "#FF0000"; // Red for loser
+    } else {
+        xScoreElement.style.color = "#221C1B"; // Default color
+        oScoreElement.style.color = "#221C1B"; // Default color
+    }
 }
 /**
  * Function to check for win
@@ -256,7 +280,7 @@ function checkWin(player) {
 function highlight(combination) {
     const cells = document.querySelectorAll(".cell");
     combination.forEach(index => {
-        cells[index].style.backgroundColor = "green";
+        cells[index].style.backgroundColor = "#A9EFB8";
     });
 }
 
