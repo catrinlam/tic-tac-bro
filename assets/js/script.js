@@ -129,6 +129,7 @@ function computerMove() {
             cells[b].textContent === 'O' &&
             cells[c].textContent === ''
         ) {
+            // computer wins
             cells[c].textContent = 'O';
             cells[c].style.color = "#A54657"; // Make Os red
             someoneWon = true;
@@ -175,14 +176,16 @@ function computerMove() {
     }
 
     // Check if computer needs to block player
-    if (Math.random() < 0.65) { // 65% chance to block the player
+    if (Math.random() < 0.7) { // 70% chance to block the player
         for (let combination of winningCombinations) {
+            // check if player is about to win
             const [a, b, c] = combination;
             if (
                 cells[a].textContent === 'X' &&
                 cells[b].textContent === 'X' &&
                 cells[c].textContent === ''
             ) {
+                // block player
                 cells[c].textContent = 'O';
                 cells[c].style.color = "#A54657"; // Make Os red
                 currentPlayer = 'X';
@@ -334,20 +337,6 @@ function updateScores() {
 
     xScoreElement.innerHTML = `X  =  ${scores.X}`;
     oScoreElement.innerHTML = `O  =  ${scores.O}`;
-
-    const winner = scores.X > scores.O ? 'X' : (scores.O > scores.X ? 'O' : null); // get winner
-    const loser = scores.X > scores.O ? 'O' : (scores.O > scores.X ? 'X' : null); // get loser
-    // highlight winner and loser
-    if (winner && loser) {
-        const winnerElement = document.getElementById(`${winner.toLowerCase()}score`);
-        const loserElement = document.getElementById(`${loser.toLowerCase()}score`);
-
-        winnerElement.style.color = "#00FF00"; // Green for winner
-        loserElement.style.color = "#FF0000"; // Red for loser
-    } else {
-        xScoreElement.style.color = "#221C1B"; // Default color
-        oScoreElement.style.color = "#221C1B"; // Default color
-    }
 }
 /**
  * Function to check for win
