@@ -136,6 +136,8 @@ function computerMove() {
             scores.O++;
             console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
             updateScores();
+            highlight(combination);
+            setTimeout(resetGame, 2000); // auto resets game after 2 seconds
             return;
         }
         if (
@@ -150,6 +152,8 @@ function computerMove() {
             scores.O++;
             console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
             updateScores();
+            highlight(combination);
+            setTimeout(resetGame, 2000); // auto resets game after 2 seconds
             return;
         }
         if (
@@ -164,48 +168,49 @@ function computerMove() {
             scores.O++;
             console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
             updateScores();
+            highlight(combination);
+            setTimeout(resetGame, 2000); // auto resets game after 2 seconds
             return;
         }
     }
 
     // Check if computer needs to block player
-    for (let combination of winningCombinations) {
-        const [a, b, c] = combination;
-        // Check if computer can block player
-        if (
-            cells[a].textContent === 'X' &&
-            cells[b].textContent === 'X' &&
-            cells[c].textContent === ''
-        ) {
-            cells[c].textContent = 'O';
-            cells[c].style.color = "#A54657"; // Make Os red
-            currentPlayer = 'X';
-            endMessage.textContent = `${currentPlayer}'s turn!`;
-            return;
-        }
-        // Check if computer can block player
-        if (
-            cells[a].textContent === 'X' &&
-            cells[b].textContent === '' &&
-            cells[c].textContent === 'X'
-        ) {
-            cells[b].textContent = 'O';
-            cells[b].style.color = "#A54657"; // Make Os red
-            currentPlayer = 'X';
-            endMessage.textContent = `${currentPlayer}'s turn!`;
-            return;
-        }
-        // Check if computer can win
-        if (
-            cells[a].textContent === '' &&
-            cells[b].textContent === 'X' &&
-            cells[c].textContent === 'X'
-        ) {
-            cells[a].textContent = 'O';
-            cells[a].style.color = "#A54657"; // Make Os red
-            currentPlayer = 'X';
-            endMessage.textContent = `${currentPlayer}'s turn!`;
-            return;
+    if (Math.random() < 0.65) { // 65% chance to block the player
+        for (let combination of winningCombinations) {
+            const [a, b, c] = combination;
+            if (
+                cells[a].textContent === 'X' &&
+                cells[b].textContent === 'X' &&
+                cells[c].textContent === ''
+            ) {
+                cells[c].textContent = 'O';
+                cells[c].style.color = "#A54657"; // Make Os red
+                currentPlayer = 'X';
+                endMessage.textContent = `${currentPlayer}'s turn!`;
+                return;
+            }
+            if (
+                cells[a].textContent === 'X' &&
+                cells[b].textContent === '' &&
+                cells[c].textContent === 'X'
+            ) {
+                cells[b].textContent = 'O';
+                cells[b].style.color = "#A54657"; // Make Os red
+                currentPlayer = 'X';
+                endMessage.textContent = `${currentPlayer}'s turn!`;
+                return;
+            }
+            if (
+                cells[a].textContent === '' &&
+                cells[b].textContent === 'X' &&
+                cells[c].textContent === 'X'
+            ) {
+                cells[a].textContent = 'O';
+                cells[a].style.color = "#A54657"; // Make Os red
+                currentPlayer = 'X';
+                endMessage.textContent = `${currentPlayer}'s turn!`;
+                return;
+            }
         }
     }
 
@@ -222,6 +227,8 @@ function computerMove() {
         scores.O++;
         console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
         updateScores();
+        highlight(combination);
+        setTimeout(resetGame, 2000); // auto resets game after 2 seconds
         return;
     }
     // check if game is tied
