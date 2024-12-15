@@ -147,7 +147,11 @@ function createBoard() {
 * Function to handle clicks on cell
 */
 function handleClick(cell, index) {
-    if (someoneWon || cell.textContent !== ""){
+    if (someoneWon || cell.textContent !== "" || (computer && currentPlayer === 'O')) {
+        if (!someoneWon && cell.textContent === "" && computer && currentPlayer === 'O') {
+            endMessage.textContent = "Wait for your turn!";
+            return; // Do nothing if it's the computer's turn
+        }
         endMessage.textContent = "Oi pick your own square!";
         return;
     }
@@ -174,7 +178,7 @@ function handleClick(cell, index) {
     currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
     endMessage.textContent = `${currentPlayer}'s turn!`;
 
-    if (computer) {
+    if (computer && currentPlayer === 'O') {
         setTimeout(computerMove, 1000); // delay computer move by 1 second
     }
 }
