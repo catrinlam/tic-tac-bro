@@ -21,7 +21,7 @@ resetScores(); // initialize scores to 0
 const resetBtn = document.getElementById("reset");
 resetBtn.addEventListener("click", () => {
     resetGame();
-    resetScores();
+    resetScores(); // reset scores when reset button is clicked
 });
 createBoard();
 
@@ -62,19 +62,24 @@ twoPlayerBtn.addEventListener("click", () => {
 });
 
 let playerMoved = false;
-
+/**
+ * Function to reset scores
+ */
 function resetScores(){
     scores = { X: 0, O: 0 };
     updateScores();
 }
 
+/**
+ * Function for Vs Computer mode
+    */
 function computerMove() {
     if (someoneWon || !playerMoved) return;
 
     const cells = document.querySelectorAll(".cell"); 
     const emptyCells = Array.from(cells).filter(cell => cell.textContent === ""); // get empty cells
 
-    if (emptyCells.length === 0) return; 
+    if (emptyCells.length === 0) return;  // if no empty cells, return
 
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
     const cell = emptyCells[randomIndex]; // pick a random empty cell
@@ -100,12 +105,13 @@ function computerMove() {
     endMessage.textContent = `${currentPlayer}'s turn!`;
 }
 
-/*
+/** 
 
 *Function to create the board
 
 */
 function createBoard() {
+    // create table for the board
     let board = document.getElementById("board");
     board.innerHTML = `<table>
         <tr>
@@ -133,14 +139,12 @@ function createBoard() {
         cell.style.textAlign = "center";
         cell.style.verticalAlign = "middle";
         cell.style.fontSize = "24px";
-        cell.style.border = "1px solid black";
+        cell.style.border = "2px solid black";
     });
 }
 
-/*
-
-Function to handle clicks on cells
-
+/** 
+* Function to handle clicks on cell
 */
 function handleClick(cell, index) {
     if (someoneWon || cell.textContent !== ""){
@@ -174,12 +178,16 @@ function handleClick(cell, index) {
         setTimeout(computerMove, 1000); // delay computer move by 1 second
     }
 }
-
+/**
+ * Function to update scores
+ */
 function updateScores() {
     document.getElementById("xscore").innerHTML = `X  =  ${scores.X}`;
     document.getElementById("oscore").innerHTML = `O  =  ${scores.O}`;
 }
-
+/**
+ * Function to check for win
+ */
 function checkWin(player) {
     const cells = document.querySelectorAll(".cell");
 
@@ -198,6 +206,9 @@ function checkWin(player) {
     });
 }
 
+/**
+ * Function to highlight winning combination
+ */
 function highlight(combination) {
     const cells = document.querySelectorAll(".cell");
     combination.forEach(index => {
@@ -205,11 +216,17 @@ function highlight(combination) {
     });
 }
 
+/**
+ * Function to check for tie
+ */
 function checkTie() {
     const cells = document.querySelectorAll(".cell");
     return Array.from(cells).every(cell => cell.textContent !== "");
 }
 
+/**
+ * Function to reset game
+ */
 function resetGame() {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(cell => {
