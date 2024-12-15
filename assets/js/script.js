@@ -52,6 +52,7 @@ computerBtn.addEventListener("click", () => {
 const twoPlayerBtn = document.getElementById("2player");
 twoPlayerBtn.addEventListener("click", () => {
     resetGame(); // reset board for new game
+    resetScores(); // reset scores
     currentPlayer = 'X';
     endMessage.textContent = `X's turn!`;
     computer = false;
@@ -152,7 +153,7 @@ function handleClick(cell, index) {
             endMessage.textContent = "Wait for your turn!";
             return; // Do nothing if it's the computer's turn
         }
-        endMessage.textContent = "Oi pick your own square!";
+        endMessage.textContent = "Oi, pick your own square!";
         return;
     }
 
