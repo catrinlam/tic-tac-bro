@@ -18,11 +18,13 @@ let scores = {
 
 resetScores(); // initialize scores to 0
 
+// event listener for reset button
 const resetBtn = document.getElementById("reset");
 resetBtn.addEventListener("click", () => {
     resetGame();
     resetScores(); // reset scores when reset button is clicked
 });
+
 createBoard();
 
 const endMessage = document.createElement("h2");
@@ -31,7 +33,7 @@ endMessage.style.marginTop = "30px";
 endMessage.style.textAlign = "center";
 document.getElementById("board").after(endMessage);
 
-let computer = false;
+let computer = false; // computer mode is off by default
 
 // event listener for computer button and to start computer mode
 const computerBtn = document.getElementById("computer");
@@ -40,13 +42,28 @@ computerBtn.addEventListener("click", () => {
     resetScores(); // reset scores
     currentPlayer = 'X';
     endMessage.textContent = `X's turn!`;
-    computer = true;
+    computer = true; // computer mode activated! beep boop!
     console.log("Computer mode activated!");
     computerMove();
+
     // highlight computer button
     computerBtn.style.backgroundColor = "#60A561";
+    computerBtn.style.border = "2px solid #335B34";
+    
     twoPlayerBtn.style.backgroundColor = "#F0C293";
+    twoPlayerBtn.style.border = "2px solid #e9a35d";
 });
+// brings back the colour change on hover for computer button
+computerBtn.addEventListener("mouseover", () => {
+    computerBtn.style.backgroundColor = "#60A561";
+    computerBtn.style.border = "2px solid #335B34";
+});
+computerBtn.addEventListener("mouseout", () => {    
+    if (computer) return; // highlight computer button if computer mode is on
+    computerBtn.style.backgroundColor = "#F0C293";
+    computerBtn.style.border = "2px solid #e9a35d";
+});
+
 
 // event listener for 2 player button and to start 2 player mode
 const twoPlayerBtn = document.getElementById("2player");
@@ -57,12 +74,34 @@ twoPlayerBtn.addEventListener("click", () => {
     endMessage.textContent = `X's turn!`;
     computer = false;
     console.log("2 player mode activated!");
-    // highlight player button
+
+    // highlight two player button
     computerBtn.style.backgroundColor = "#F0C293";
+    computerBtn.style.border = "2px solid #e9a35d";
+
     twoPlayerBtn.style.backgroundColor = "#60A561";
+    twoPlayerBtn.style.border = "2px solid #335B34";
+    
 });
 
+// brings back the colour change on hover for two player button
+twoPlayerBtn.addEventListener("mouseover", () => {
+    twoPlayerBtn.style.backgroundColor = "#60A561";
+    twoPlayerBtn.style.border = "2px solid #335B34";
+});
+twoPlayerBtn.addEventListener("mouseout", () => {
+    if (!computer) return; // highlight two player button if computer mode is off
+    twoPlayerBtn.style.backgroundColor = "#F0C293";
+    twoPlayerBtn.style.border = "2px solid #e9a35d";
+});
+
+// highlight two player button by default
+twoPlayerBtn.style.backgroundColor = "#60A561";
+twoPlayerBtn.style.border = "2px solid #335B34";
+
 let playerMoved = false;
+
+
 /**
  * Function to reset scores
  */
