@@ -32,6 +32,7 @@ endMessage.style.textAlign = "center";
 document.getElementById("board").after(endMessage);
 
 let computer = false;
+
 // event listener for computer button and to start computer mode
 const computerBtn = document.getElementById("computer");
 computerBtn.addEventListener("click", () => {
@@ -42,7 +43,11 @@ computerBtn.addEventListener("click", () => {
     computer = true;
     console.log("Computer mode activated!");
     computerMove();
+    // highlight computer button
+    computerBtn.style.backgroundColor = "#60A561";
+    twoPlayerBtn.style.backgroundColor = "#F0C293";
 });
+
 // event listener for 2 player button and to start 2 player mode
 const twoPlayerBtn = document.getElementById("2player");
 twoPlayerBtn.addEventListener("click", () => {
@@ -51,6 +56,9 @@ twoPlayerBtn.addEventListener("click", () => {
     endMessage.textContent = `X's turn!`;
     computer = false;
     console.log("2 player mode activated!");
+    // highlight player button
+    computerBtn.style.backgroundColor = "#F0C293";
+    twoPlayerBtn.style.backgroundColor = "#60A561";
 });
 
 let playerMoved = false;
