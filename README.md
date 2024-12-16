@@ -4,7 +4,7 @@ Tic Tac Bros is a web app game that lets friends and family enjoy the classic ga
 
 Visit the live site [here](https://catrin.is-a.dev/tic-tac-bro/)
 
-[Insert an example responsive mockup image here]
+![Responsive UI](assets/images/docs/responsive-ui.png)
 
 ## Contents
 
@@ -159,6 +159,14 @@ Minimalist and modern imagery focusing on the Tic-Tac-Toe grid and game pieces.
 
 Responsive layout ensures the grid scales appropriately, and buttons are easily accessible on smaller screens. Interactive elements are optimised for touch input.
 
+**Tablet View**
+
+<img src="assets/images/docs/tablet-view.png" alt="Tablet View" style="height: 600px; width: auto;">
+
+**Mobile View**
+
+<img src="assets/images/docs/mobile-view.png" alt="Mobile View" style="height: 500px; width: auto;">
+
 ## Future Features
 
 - AI opponent for single-player mode.
@@ -198,8 +206,6 @@ The live link can be found here - https://catrin.is-a.dev/tic-tac-bro/
 ## Testing
 
 Please see [TESTING.md](TESTING.md) file for all manual testing.
-
-### Bugs
 
 ## Credits
 
