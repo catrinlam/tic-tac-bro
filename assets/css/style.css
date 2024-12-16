@@ -49,7 +49,8 @@ main{
     flex-direction: column;
     align-items: center;
     font-family: "Fontdiner Swanky", serif;
-    margin: 2em;
+    margin: 2px;
+    
 }
 
 #gamemode,
@@ -94,7 +95,7 @@ button:hover {
 
 /*Footer*/
 footer {
-    padding: 20px 10px;
+    padding: 10px 10px;
     font-size: 12px;
     background-color: #F0C293;
     font-family: "Fontdiner Swanky", serif;
