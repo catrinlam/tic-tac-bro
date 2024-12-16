@@ -147,7 +147,7 @@ function handleClick(cell, index) {
         return;
     }
 
-    currentPlayer = 'O';
+    currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
     endMessage.textContent = `${currentPlayer}'s turn!`;
 
     if (computer) {
