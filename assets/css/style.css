@@ -29,6 +29,11 @@ h1 {
     padding-left: 30px;
 }
 
+#rules {
+    position: absolute;
+    right: 0;
+}
+
 .dropdown-toggle {
     background-color: #F0C293;
 }
@@ -92,22 +97,10 @@ footer {
     color: #221C1B;
 }
 
-/*Bar screen size change*/
-@media screen and (min-width: 760px) {
-    #bar {
-        display: none;
-    }
-}
 
-/*Rules screen size change*/
-/* Hide #rules by default */
-#rules {
-    display: none;
-}
-
-/* Show #rules on screens larger than 760px */
-@media screen and (min-width: 760px) {
+@media screen and (max-width: 350px) {
     #rules {
-        display: block;
+        right: 0;
     }
 }
+
