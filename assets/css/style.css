@@ -39,6 +39,10 @@ h1 {
 }
 
 /* Main Content */
+main{
+    background: url(../images/background.png) center / cover;
+    height:100%;
+}
 
 #main {
     display: flex;
@@ -104,3 +108,8 @@ footer {
     }
 }
 
+@media  and (max-height:750) {
+    main{
+        
+    }
+}
