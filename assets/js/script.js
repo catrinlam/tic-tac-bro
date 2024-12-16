@@ -276,7 +276,7 @@ function createBoard() {
         cell.style.textAlign = "center";
         cell.style.verticalAlign = "middle";
         cell.style.fontSize = "24px";
-        cell.style.border = "4px solid #221C1B";
+        cell.style.border = "3px solid #221C1B";
     });
 }
 
