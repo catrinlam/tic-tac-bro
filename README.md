@@ -6,7 +6,7 @@ Visit the live site [here](https://catrin.is-a.dev/tic-tac-bro/)
 
 [Insert an example responsive mockup image here]
 
-### Contents
+## Contents
 
 - [UX (User Experience)](#ux-user-experience)
 - [Design](#design)
@@ -18,9 +18,9 @@ Visit the live site [here](https://catrin.is-a.dev/tic-tac-bro/)
 - [Testing](#testing)
 - [Credits](#credits)
 
-### UX (User Experience)
+## UX (User Experience)
 
-#### User Stories
+### User Stories
 
 - As a user, I want to easily navigate the website and start a game without hassle.
 - As a user, I want the website to look visually appealing and responsive on all devices.
@@ -51,19 +51,19 @@ Visit the live site [here](https://catrin.is-a.dev/tic-tac-bro/)
 
 - As a user, I can see the credit in the footer.
 
-#### Strategy
+### Strategy
 
 The goal was to design a simple and accessible game platform that encourages social interaction while offering the familiar and fun experience of a universally loved game.
 
-#### Scope
+### Scope
 
 The project includes a fully functional Tic-Tac-Toe game for two players with plans for adding AI and scoring systems.
 
-#### Structural
+### Structural
 
 The website structure follows a single-page design, making it easy for users to navigate the website and switch between the game and other information.
 
-#### Skeleton (Wireframes)
+### Skeleton (Wireframes)
 
 **Mobile View**:
 
@@ -73,18 +73,18 @@ The website structure follows a single-page design, making it easy for users to 
 
   <img src="assets/images/docs/wireframes/tablet.png" alt="Tablet Wireframes" style="height: 600px; width: auto;">
 
-#### Surface
+### Surface
 
 The design features a clean layout with a light colour palette. The 'X' and 'O' are highlighted in blue and yellow for clear distinction. Interactive elements are easy to identify, ensuring a good user experience on all devices.
 
-### Design
+## Design
 
-#### Typography
+### Typography
 
 - Primary font: [Barriecito](https://fonts.google.com/specimen/Barriecito?categoryFilters=Feeling:%2FExpressive%2FPlayful&preview.text=Tic%20Tac%20Bro)
 - Secondary font: [Fontdiner Swanky](https://fonts.google.com/specimen/Fontdiner+Swanky?categoryFilters=Feeling:%2FExpressive%2FPlayful&preview.text=Tic%20Tac%20Bro&query=Fontdiner+Swanky)
 
-#### Colour Scheme
+### Colour Scheme
 
 - #221C1B: Dark for grid and text
 - #F4EDEA: Light cream for background
@@ -96,13 +96,13 @@ You can see the colour theme [here](https://coolors.co/221c1b-f4edea-f0c293-a546
 
 ![Colour Theme](assets/images/docs/colour-theme.png)
 
-#### Imagery
+### Imagery
 
 Minimalist and modern imagery focusing on the Tic-Tac-Toe grid and game pieces.
 
-### Website Features
+## Website Features
 
-#### Existing Features
+### Existing Features
 
 - **Navigation Bar**: Displays the logo and provides quick access to game rules.
 - **Switching Mode Button**: Allows switching between two-player mode and one-player vs. computer mode.
@@ -111,7 +111,7 @@ Minimalist and modern imagery focusing on the Tic-Tac-Toe grid and game pieces.
 - **Scoreboard**: Shows the scores at the bottom.
 - **Footer**: Shows credits to the team.
 
-#### JavaScript Logic/Functionality
+### JavaScript Logic/Functionality
 
 **Board Creation**
 
@@ -155,25 +155,25 @@ Minimalist and modern imagery focusing on the Tic-Tac-Toe grid and game pieces.
 - The `endMessage` dynamically updates to show whose turn it is, whether the game is tied, or if there’s a winner.
 - This ensures the user is informed at every stage of the game.
 
-### Tablet/Mobile View
+## Tablet/Mobile View
 
 Responsive layout ensures the grid scales appropriately, and buttons are easily accessible on smaller screens. Interactive elements are optimised for touch input.
 
-### Future Features
+## Future Features
 
 - AI opponent for single-player mode.
 - Customisable themes for the game board.
 - Multiplayer support over the internet.
 
-### Technologies Used
+## Technologies Used
 
-#### Languages
+### Languages
 
 - HTML
 - CSS
 - JavaScript
 
-#### Frameworks/Libraries/Programs
+### Frameworks/Libraries/Programs
 
 - Frameworks or libraries:
 
@@ -186,7 +186,7 @@ Responsive layout ensures the grid scales appropriately, and buttons are easily 
   - Balsamiq
   - Coolors
 
-### Deployment
+## Deployment
 
 - The site was deployed to GitHub pages. The steps to deploy are as follows:
   - In the GitHub repository, navigate to the Settings tab
@@ -195,13 +195,13 @@ Responsive layout ensures the grid scales appropriately, and buttons are easily 
 
 The live link can be found here - https://catrin.is-a.dev/tic-tac-bro/
 
-### Testing
+## Testing
 
 Please see [TESTING.md](TESTING.md) file for all manual testing.
 
-#### Bugs
+### Bugs
 
-### Credits
+## Credits
 
 - https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ - Used the wins array to define our win conditions.
 - https://www.thatsoftwaredude.com/content/6189/step-by-step-guide-to-coding-tic-tac-toe-in-javascript - Followed some of the steps to help write the Javascript.
@@ -209,12 +209,12 @@ Please see [TESTING.md](TESTING.md) file for all manual testing.
 - Copilot - Used for autocomplete and to add styles in the JavaScript for faster coding.
 
 
-#### Content References
+### Content References
 
 - [Google Fonts](https://fonts.google.com/) was used for font styling
 - [Font Awesome](https://fontawesome.com/) was used for X and O icons
 
-#### Team
+### Team
 
 - Amina [GitHub](https://github.com/aminoacid-01)
 - Catrin [GitHub](https://github.com/catrinlam)
