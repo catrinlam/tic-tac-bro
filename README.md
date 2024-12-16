@@ -105,11 +105,28 @@ Minimalist and modern imagery focusing on the Tic-Tac-Toe grid and game pieces.
 ### Existing Features
 
 - **Navigation Bar**: Displays the logo and provides quick access to game rules.
+
+![Nav Bar](assets/images/docs/nav-bar.png)
+
 - **Switching Mode Button**: Allows switching between two-player mode and one-player vs. computer mode.
+
+![Switching Mode](assets/images/docs/switch-mode.png)
+
 - **Game**: Fully interactive 3x3 tic-tac-toe board.
+
+![Game](assets/images/docs/game.png)
+
 - **Reset Button**: Allows players to restart the game at any point.
+
+![Reset Button](assets/images/docs/reset.png)
+
 - **Scoreboard**: Shows the scores at the bottom.
+
+![Score Board](assets/images/docs/scoreboard.png)
+
 - **Footer**: Shows credits to the team.
+
+![Footer](assets/images/docs/footer.png)
 
 ### JavaScript Logic/Functionality
 
@@ -169,7 +186,7 @@ Responsive layout ensures the grid scales appropriately, and buttons are easily 
 
 ## Future Features
 
-- AI opponent for single-player mode.
+- Allow user to switch to different difficult levels
 - Customisable themes for the game board.
 - Multiplayer support over the internet.
 
