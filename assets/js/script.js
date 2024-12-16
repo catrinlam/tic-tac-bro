@@ -16,7 +16,6 @@ let scores = {
     X: 0, 
     O: 0 }; // keep track of scores
 
-resetScores(); // initialize scores to 0
 
 // event listener for reset button
 const resetBtn = document.getElementById("reset");
@@ -230,8 +229,6 @@ function computerMove() {
         scores.O++;
         console.log(`Scores - X: ${scores.X}, O: ${scores.O}`);
         updateScores();
-        highlight(combination);
-        setTimeout(resetGame, 2000); // auto resets game after 2 seconds
         return;
     }
     // check if game is tied
@@ -334,9 +331,18 @@ function handleClick(cell, index) {
 function updateScores() {
     const xScoreElement = document.getElementById("xscore");
     const oScoreElement = document.getElementById("oscore");
-
+    const scoreBoard = document.getElementById("counter")
+    // edits divs to show scores
     xScoreElement.innerHTML = `X  =  ${scores.X}`;
     oScoreElement.innerHTML = `O  =  ${scores.O}`;
+    // style scores
+    oScoreElement.style.marginLeft = "10px";
+    xScoreElement.style.marginRight = "10px";
+    xScoreElement.style.fontSize = "1.3rem";
+    oScoreElement.style.fontSize = "1.3rem";
+    scoreBoard.style.width = "150px";
+    scoreBoard.style.padding = "4px";
+    
 }
 /**
  * Function to check for win
@@ -385,9 +391,9 @@ function resetGame() {
     cells.forEach(cell => {
         cell.textContent = "";
         cell.style.backgroundColor = "#f0f0f0";
-    });
-    currentPlayer = players[0];
-    someoneWon = false;
+    }); // reset cells to empty
+    currentPlayer = players[0]; // set current player to X
+    someoneWon = false; 
     playerMoved = false;
     endMessage.textContent = "X's turn!";
 }
