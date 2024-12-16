@@ -39,7 +39,6 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
     font-family: "Fontdiner Swanky", serif;
     margin: 2em;
 }
@@ -86,9 +85,6 @@ button:hover {
 
 /*Footer*/
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     padding: 20px 10px;
     font-size: 12px;
     background-color: #F0C293;
