@@ -40,7 +40,7 @@ h1 {
 
 /* Main Content */
 main{
-    background: url(../images/background.png) center / cover;
+    background: url(../images/background3.png) center / cover;
     height:100%;
 }
 
@@ -109,8 +109,4 @@ footer {
     }
 }
 
-@media  and (max-height:750) {
-    main{
-        
-    }
-}
+
