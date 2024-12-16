@@ -85,9 +85,6 @@ button:hover {
 
 /*Footer*/
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     padding: 20px 10px;
     font-size: 12px;
     background-color: #F0C293;
