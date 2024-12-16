@@ -2,7 +2,7 @@
 
 Tic Tac Bros is a web app game that lets friends and family enjoy the classic game of Tic-Tac-Toe together. It features a simple and modern design with smooth functionality. The game works well on desktops, tablets, and mobiles, making it fun and easy to play anywhere.
 
-Visit the live site [here](https://catrin.is-a.dev/tic-tac-bro/)
+Visit the live site [here](https://catrin.is-a.dev/tic-tac-bros/)
 
 ![Responsive UI](assets/images/docs/responsive-ui.png)
 
@@ -218,7 +218,7 @@ Responsive layout ensures the grid scales appropriately, and buttons are easily 
   - From the source section drop-down menu, select the `deploy` Branch
   - Once the `deploy` branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
-The live link can be found here - https://catrin.is-a.dev/tic-tac-bro/
+The live link can be found here - https://catrin.is-a.dev/tic-tac-bros/
 
 ## Testing
 
